@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Currículo Profissional de Luiz Queiroz de Melo Filho - Projetista Técnico e Desenvolvedor de Software">
+    <meta name="author" content="Luiz Queiroz de Melo Filho">
+    <title>Luiz Queiroz | Currículo Profissional</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Link para o CSS Externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Canvas Background Glows (Estilo Premium Web) -->
+    <div class="glow-bg">
+        <div class="glow-1"></div>
+        <div class="glow-2"></div>
+    </div>
+
+    <!-- Botões de Ação da Web (Ocultados na Impressão) -->
+    <div class="web-controls" id="webControls">
+        <div class="controls-container">
+            <span class="logo-text">Luiz Queiroz <span class="badge">Design Premium (1 Pág)</span></span>
+            <div class="btn-group">
+                <button onclick="toggleTheme()" class="btn btn-secondary" id="themeBtn" title="Alternar tema escuro/claro">
+                    <span class="icon">🌓</span> Tema
+                </button>
+                <button onclick="window.print()" class="btn btn-primary" title="Exportar currículo para PDF">
+                    <span class="icon">🖨️</span> Imprimir / PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         PÁGINA ÚNICA A4
+         ========================================== -->
+    <div class="resume-page" id="page-1">
+        
+        <!-- Sidebar Escura (Esquerda) -->
+        <aside class="resume-sidebar">
+            
+            <!-- Foto de Perfil Premium (Tamanho Otimizado para 1 Página) -->
+            <div class="profile-container">
+                <div class="profile-frame">
+                    <img src="foto_perfil.jpg" alt="Luiz Queiroz de Melo Filho" class="profile-img">
+                </div>
+            </div>
+
+            <!-- Informações de Contato -->
+            <section class="sidebar-section">
+                <div class="sidebar-title-pill">
+                    <span class="icon">👤</span> Contato
+                </div>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <span class="contact-label">TELEFONE</span>
+                        <span class="contact-value"><a href="tel:+5585992761474">+55 85 99276-1474</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">E-MAIL</span>
+                        <span class="contact-value"><a href="mailto:luiz.queiroz240202@gmail.com">luiz.queiroz240202@gmail.com</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">ENDEREÇO</span>
+                        <span class="contact-value">Fortaleza - CE</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">GITHUB</span>
+                        <span class="contact-value"><a href="https://github.com/Lup1s" target="_blank">github.com/Lup1s</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">LINKEDIN</span>
+                        <span class="contact-value"><a href="https://linkedin.com/in/luiz-queiroz-melo" target="_blank">linkedin.com/in/Lup1s</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">PORTFÓLIO</span>
+                        <span class="contact-value"><a href="https://lup1s.github.io" target="_blank">lup1s.github.io</a></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Habilidades / Competências -->
+            <section class="sidebar-section">
+                <div class="sidebar-title-pill">
+                    <span class="icon">🛠️</span> Habilidades
+                </div>
+                <div class="skill-badges">
+                    <span class="badge-pill">AutoCAD</span>
+                    <span class="badge-pill">Civil 3D</span>
+                    <span class="badge-pill">Des. Técnico</span>
+                    <span class="badge-pill">Sinalização</span>
+                    <span class="badge-pill">Mobilidade</span>
+                    <span class="badge-pill">C# (.NET)</span>
+                    <span class="badge-pill">Python & IA</span>
+                    <span class="badge-pill">JavaScript</span>
+                    <span class="badge-pill">HTML5 / CSS3</span>
+                    <span class="badge-pill">Git / GitHub</span>
+                    <span class="badge-pill">Excel Av.</span>
+                </div>
+            </section>
+
+            <!-- Formação Acadêmica -->
+            <section class="sidebar-section">
+                <div class="sidebar-title-pill">
+                    <span class="icon">🎓</span> Educação
+                </div>
+                <div class="education-list">
+                    <div class="edu-item">
+                        <span class="edu-status-pill">Superior Parcial</span>
+                        <h4 class="edu-title">Engenharia Civil</h4>
+                        <p class="edu-school">Cruzeiro do Sul</p>
+                    </div>
+                    <div class="edu-item">
+                        <span class="edu-status-pill">Superior Parcial</span>
+                        <h4 class="edu-title">Análise e Desenv. Sistemas</h4>
+                        <p class="edu-school">UniFanor Wyden</p>
+                    </div>
+                    <div class="edu-item">
+                        <span class="edu-status-pill concluded">Concluído</span>
+                        <h4 class="edu-title">Técnico Edificações</h4>
+                        <p class="edu-school">Grau Técnico B.M. • 2023</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Idiomas & Perfil Rápido -->
+            <section class="sidebar-section">
+                <div class="sidebar-title-pill">
+                    <span class="icon">🌐</span> Perfil & Idiomas
+                </div>
+                <div class="languages-grid">
+                    <div class="lang-row">
+                        <span class="lang-name">Português:</span>
+                        <span class="lang-val">Nativo</span>
+                    </div>
+                    <div class="lang-row">
+                        <span class="lang-name">Inglês:</span>
+                        <span class="lang-val">Técnico</span>
+                    </div>
+                </div>
+                <ul class="profile-bullets-compact">
+                    <li>Raciocínio analítico apurado para solução de problemas.</li>
+                    <li>Autodidata, proativo e adaptável.</li>
+                </ul>
+            </section>
+
+        </aside>
+
+        <!-- Coluna Principal Clara (Direita) -->
+        <main class="resume-main">
+            
+            <!-- Nome e Cargo -->
+            <header class="name-box">
+                <div class="name-container">
+                    <h1 class="name">LUIZ QUEIROZ</h1>
+                    <h2 class="surname">DE MELO FILHO</h2>
+                    <div class="name-divider"></div>
+                    <p class="role-title">Projetista Técnico & Desenvolvedor de Software</p>
+                </div>
+            </header>
+
+            <!-- Resumo Profissional -->
+            <section class="main-section" id="resumo">
+                <div class="section-badge">Resumo Profissional</div>
+                <div class="card-content">
+                    <p class="summary-text">
+                        Profissional com sólida experiência em projetos técnicos voltados para mobilidade urbana e sinalização viária, aliado a uma formação técnica em edificações e fortes conhecimentos em desenvolvimento de software e automação de processos. Domínio de ferramentas como AutoCAD e Civil 3D, com competência na elaboração de representações gráficas, análise e compatibilização de documentação técnica. Atua ativamente no desenvolvimento de automações e soluções inteligentes (visão computacional e dashboards) voltadas para a otimização de fluxos de engenharia. Apresenta perfil analítico, alta capacidade de autodesenvolvimento e foco na resolução de problemas complexos.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Experiência Profissional -->
+            <section class="main-section" id="experiencia">
+                <div class="section-badge">Experiência</div>
+                
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="role">Projetista Técnico</h3>
+                            <span class="company">Transitar Consultoria</span>
+                        </div>
+                        <span class="date-badge">2022 - 2025</span>
+                    </div>
+                    <div class="experience-body">
+                        <ul>
+                            <li><strong>Projetos & Modelagem:</strong> Desenvolvimento de projetos técnicos de sinalização viária e estudos de mobilidade urbana com AutoCAD e Civil 3D, garantindo conformidade normativa e precisão técnica.</li>
+                            <li><strong>Compatibilização:</strong> Análise, organização e compatibilização de documentação técnica multidisciplinar, mitigando divergências na fase de planejamento de tráfego.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projetos Relevantes -->
+            <section class="main-section" id="projetos">
+                <div class="section-badge">Projetos & Tecnologia</div>
+                <div class="projects-list">
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Sistema de Contagem e Classificação de Veículos (IA)</h3>
+                            <div class="project-tags">
+                                <span>Python</span>
+                                <span>OpenCV</span>
+                                <span>YOLO</span>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Aplicação de inteligência artificial e visão computacional para automatizar a contagem e classificação de fluxo viário em filmagens, reduzindo significativamente o processamento manual dos dados de tráfego.
+                        </p>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Automações de Engenharia & Processos</h3>
+                            <div class="project-tags">
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>Excel API</span>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Scripts em Python para automatizar tarefas repetitivas, como extração estruturada de dados de contagem viária e geração automática de relatórios de tráfego.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Sistemas de Gestão & Web Dashboards</h3>
+                            <div class="project-tags">
+                                <span>HTML5 / CSS3</span>
+                                <span>JS</span>
+                                <span>C#</span>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Plataformas web responsivas e painéis interativos para acompanhamento de cronogramas e centralização de relatórios gerenciais de engenharia.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Plugins e Extensões CAD</h3>
+                            <div class="project-tags">
+                                <span>C#</span>
+                                <span>.NET</span>
+                                <span>AutoCAD API</span>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Estudos e protótipos em C# e LISP para automatização de desenhos de sinalizações e geração dinâmica de tabelas viárias diretamente no CAD.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+        
+    </div>
+
+    <!-- Script de Interação -->
+    <script src="script.js"></script>
+</body>
+</html>

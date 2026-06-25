@@ -1,0 +1,773 @@
+/* ==========================================================================
+   SISTEMA DE CORES E FONTES PADRONIZADAS (RICARDO SANTOS & ÁLVARO DUARTE)
+   ========================================================================== */
+:root {
+    /* Cores Globais Web - Modo Claro */
+    --bg-page: #e9ecef;
+    --bg-sidebar: #2b2d35; /* Barra lateral escura - Constante */
+    --bg-main: #f4f5f7; /* Fundo principal off-white */
+    --bg-card: #ffffff;
+    --border-color: #cbd5e1;
+    
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --text-sidebar: #f8fafc;
+    --text-sidebar-muted: #94a3b8;
+    
+    --accent: #2563eb;
+    --accent-light: #eff6ff;
+    
+    /* Cores de Destaque */
+    --sand-accent: #dfd8cf;
+    --sand-text: #2b2d35;
+    --blue-accent-bg: #dbebf9;
+    --blue-accent-text: #1e3a8a;
+    
+    /* Escala Tipográfica Padronizada */
+    --font-size-name: 2.1rem;
+    --font-size-surname: 1.6rem;
+    --font-size-role: 0.85rem;
+    --font-size-h2: 0.76rem;   /* Títulos de seção (badges e pills) */
+    --font-size-h3: 0.82rem;   /* Cargos e Títulos de Projetos */
+    --font-size-body: 0.74rem; /* Texto de descrição e resumos */
+    --font-size-meta: 0.66rem; /* Subtextos, datas, tags e labels */
+    
+    --font-sans: 'Inter', sans-serif;
+    --font-heading: 'Outfit', sans-serif;
+    --sheet-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+    --card-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+[data-theme="dark"] {
+    /* Modo Escuro Web */
+    --bg-page: #080c14;
+    --bg-main: #0f131f;
+    --bg-card: #151a29;
+    --border-color: #212a3e;
+    
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #64748b;
+    
+    --accent: #60a5fa;
+    --accent-light: #172554;
+    --blue-accent-bg: #1e293b;
+    --blue-accent-text: #60a5fa;
+}
+
+/* ==========================================================================
+   RESET & LAYOUT BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    line-height: 1.4;
+    padding-top: 80px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Canvas Background Glows (Apenas Web) */
+.glow-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, rgba(99, 102, 241, 0.01) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(99, 102, 241, 0.01) 1px, transparent 1px);
+}
+
+.glow-1 {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
+    filter: blur(40px);
+}
+
+.glow-2 {
+    position: absolute;
+    bottom: 5%;
+    right: 10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.02) 0%, transparent 70%);
+    filter: blur(45px);
+}
+
+/* Links */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+a:hover {
+    color: var(--accent);
+}
+
+/* ==========================================================================
+   CONTROLES DE NAVEGAÇÃO
+   ========================================================================== */
+.web-controls {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+[data-theme="dark"] .web-controls {
+    background: rgba(8, 12, 20, 0.85);
+}
+
+.controls-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.badge {
+    background: var(--bg-sidebar);
+    color: #ffffff;
+    font-size: 0.65rem;
+    padding: 2px 10px;
+    border-radius: 9999px;
+    font-weight: 600;
+    margin-left: 6px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.btn-group {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--bg-sidebar);
+    color: #ffffff;
+}
+.btn-primary:hover {
+    background: #000000;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+.btn-secondary:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+[data-theme="dark"] .btn-secondary:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+
+/* ==========================================================================
+   ESTRUTURA DO CURRÍCULO (A4 PAGE FIXADO)
+   ========================================================================== */
+.resume-page {
+    width: 210mm;
+    height: 297mm;
+    margin: 20px auto;
+    background-color: var(--bg-main);
+    box-shadow: var(--sheet-shadow);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* ------------------------------------------
+   BARRA LATERAL ESCURA (32% LARGURA)
+   ------------------------------------------ */
+.resume-sidebar {
+    width: 32%;
+    height: 100%;
+    background-color: var(--bg-sidebar);
+    color: var(--text-sidebar);
+    padding: 24px 18px; /* Expandido ligeiramente para ocupar mais espaço */
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Expandido de 15px */
+    flex-shrink: 0;
+}
+
+/* Foto de Perfil Otimizada */
+.profile-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+.profile-frame {
+    position: relative;
+    width: 115px; /* Aumentado de 105px */
+    height: 140px; /* Aumentado de 125px */
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #ffffff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Título de Seção Sidebar */
+.sidebar-title-pill {
+    background-color: var(--sand-accent);
+    color: var(--sand-text);
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h2);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 5px 12px; /* Aumentado */
+    border-radius: 20px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza conteúdo e ícone */
+    gap: 6px;
+}
+
+.sidebar-section {
+    margin-bottom: 0;
+}
+
+/* Contatos na Sidebar */
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Aumentado de 6px */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    text-align: center; /* Centraliza o texto das etiquetas e links */
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.contact-label {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-meta);
+    font-weight: 700;
+    color: var(--text-sidebar-muted);
+    letter-spacing: 0.05em;
+}
+
+.contact-value {
+    font-size: var(--font-size-body);
+    font-weight: 500;
+}
+
+/* Habilidades na Sidebar */
+/* Habilidades na Sidebar (Pílulas Alinhadas em Grade) */
+.skill-badges {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+}
+
+.badge-pill {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-meta);
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-sidebar);
+    padding: 5px 4px;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.2s ease;
+    display: block;
+}
+
+.badge-pill:last-child {
+    grid-column: span 2; /* Faz o último badge ímpar centralizar preenchendo a linha */
+}
+
+.badge-pill.accent-pill {
+    background-color: var(--sand-accent);
+    color: var(--sand-text);
+    border-color: var(--sand-accent);
+}
+
+.badge-pill:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.03);
+}
+
+/* Educação na Sidebar */
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Aumentado de 6px */
+}
+
+.edu-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    padding-bottom: 6px; /* Aumentado de 4px */
+    align-items: center; /* Centraliza elementos filhos */
+    text-align: center;  /* Centraliza textos */
+}
+.edu-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.edu-status-pill {
+    align-self: center; /* Centralizado horizontalmente */
+    font-size: var(--font-size-meta);
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--text-sidebar);
+    padding: 1px 5px;
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1px;
+}
+
+.edu-status-pill.concluded {
+    background-color: var(--sand-accent);
+    color: var(--sand-text);
+    border-color: var(--sand-accent);
+}
+
+.edu-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-body);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.edu-school {
+    font-size: var(--font-size-meta);
+    color: var(--text-sidebar-muted);
+}
+
+/* Idiomas */
+.languages-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 8px;
+}
+
+.lang-row {
+    display: flex;
+    justify-content: center; /* Centraliza conteúdo */
+    gap: 8px; /* Espaço entre idioma e nível */
+    font-size: var(--font-size-body);
+    background-color: rgba(255,255,255,0.02);
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+.lang-name {
+    font-weight: 600;
+}
+
+.lang-val {
+    color: var(--text-sidebar-muted);
+}
+
+/* Perfil */
+.profile-bullets-compact {
+    padding-left: 0; /* Remove recuo */
+    list-style-type: none;
+    text-align: center; /* Centraliza os textos */
+}
+
+.profile-bullets-compact li {
+    font-size: var(--font-size-body);
+    color: var(--text-sidebar);
+    margin-bottom: 5px;
+    line-height: 1.35;
+    position: relative;
+    padding-left: 0; /* Remove recuo do bullet */
+}
+.profile-bullets-compact li::before {
+    display: none; /* Remove o bullet para centralização limpa */
+}
+
+/* ------------------------------------------
+   COLUNA PRINCIPAL (68% LARGURA)
+   ------------------------------------------ */
+.resume-main {
+    width: 68%;
+    height: 100%;
+    padding: 24px 28px; /* Expandido ligeiramente para ocupar melhor a folha */
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Aumentado de 12px para distribuir o espaço vertical */
+    flex-grow: 1;
+}
+
+/* Nome e Cargo */
+.name-box {
+    background-color: var(--bg-card);
+    border-top: 4px solid var(--accent);
+    padding: 14px 20px; /* Aumentado */
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.02);
+    flex-shrink: 0;
+}
+
+.name-container .name {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-name);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+    color: var(--text-primary);
+}
+
+.name-container .surname {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-surname);
+    font-weight: 300;
+    color: var(--text-muted);
+    letter-spacing: -0.01em;
+    line-height: 1;
+}
+
+.name-divider {
+    height: 2px;
+    width: 35px;
+    background-color: var(--accent);
+    margin: 6px 0;
+    border-radius: 1px;
+}
+
+.name-container .role-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-role);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+/* Título de Seção Coluna Principal */
+.section-badge {
+    background-color: var(--blue-accent-bg);
+    color: var(--blue-accent-text);
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h2);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 12px; /* Aumentado */
+    border-radius: 20px;
+    align-self: flex-start;
+    margin-bottom: 6px;
+}
+
+.main-section {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Resumo */
+.card-content {
+    background-color: var(--bg-card);
+    border-radius: 6px;
+    padding: 12px 16px; /* Aumentado de 8px 12px */
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+}
+
+.summary-text {
+    font-size: var(--font-size-body);
+    color: var(--text-secondary);
+    text-align: justify;
+    line-height: 1.45;
+}
+
+/* Experiência */
+.experience-card {
+    background-color: var(--bg-card);
+    border-radius: 6px;
+    padding: 12px 16px; /* Aumentado de 8px 12px */
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+}
+
+.experience-header .role {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h3);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.experience-header .company {
+    font-size: var(--font-size-body);
+    font-weight: 600;
+    color: var(--accent);
+    display: block;
+}
+
+.date-badge {
+    font-size: var(--font-size-meta);
+    font-weight: 700;
+    background-color: var(--accent-light);
+    color: var(--accent);
+    padding: 2px 8px; /* Aumentado */
+    border-radius: 4px;
+}
+
+.experience-body li {
+    font-size: var(--font-size-body);
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    list-style-type: none;
+    position: relative;
+    padding-left: 12px;
+    line-height: 1.4;
+}
+
+.experience-body li::before {
+    content: "–";
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+}
+
+/* Projetos */
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Aumentado de 5px para distribuir melhor o espaço */
+}
+
+.project-card {
+    background-color: var(--bg-card);
+    border-radius: 6px;
+    padding: 10px 14px; /* Aumentado de 6px 12px */
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3px;
+}
+
+.project-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h3);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.project-tags {
+    display: flex;
+    gap: 4px;
+}
+
+.project-tags span {
+    font-size: var(--font-size-meta);
+    font-weight: 700;
+    background-color: var(--accent-light);
+    color: var(--accent);
+    padding: 1px 6px;
+    border-radius: 3px;
+    border: 1px solid rgba(37, 99, 235, 0.05);
+}
+
+.project-desc {
+    font-size: var(--font-size-body);
+    color: var(--text-secondary);
+    line-height: 1.35;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVIDADE WEB)
+   ========================================================================== */
+@media (max-width: 820px) {
+    body {
+        padding-top: 70px;
+    }
+    .resume-page {
+        margin: 20px auto;
+        width: 95%;
+        height: auto;
+        flex-direction: column;
+    }
+    .resume-sidebar {
+        width: 100%;
+        height: auto;
+    }
+    .resume-main {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* ==========================================================================
+   CONFIGURAÇÃO DE IMPRESSÃO (PDF A4 EXATO E MILIMÉTRICO - 1 PÁGINA)
+   ========================================================================== */
+@media print {
+    :root {
+        --bg-page: transparent;
+        --bg-main: #f4f5f7;
+        --bg-card: #ffffff;
+        --border-color: #d1d5db;
+        --text-primary: #000000;
+        --text-secondary: #1f2937;
+        --text-muted: #4b5563;
+        --accent: #1e3a8a;
+        --accent-light: transparent;
+        --sheet-shadow: none;
+        --card-shadow: none;
+    }
+
+    body {
+        background-color: transparent !important;
+        color: #000000 !important;
+        padding-top: 0 !important;
+        margin: 0 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .web-controls, .glow-bg, .glow-1, .glow-2 {
+        display: none !important;
+    }
+
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    .resume-page {
+        width: 210mm !important;
+        height: 297mm !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+        display: flex !important;
+        flex-direction: row !important;
+    }
+
+    .resume-sidebar {
+        width: 32% !important;
+        height: 100% !important;
+        background-color: #2b2d35 !important;
+        color: #ffffff !important;
+        padding: 24px 18px !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .resume-main {
+        width: 68% !important;
+        height: 100% !important;
+        background-color: #f4f5f7 !important;
+        padding: 24px 28px !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .profile-frame {
+        border-color: #ffffff !important;
+    }
+
+    .sidebar-title-pill {
+        background-color: #dfd8cf !important;
+        color: #2b2d35 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .section-badge {
+        background-color: #dbebf9 !important;
+        color: #1e3a8a !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .date-badge {
+        border: 1px solid #1e3a8a !important;
+        background-color: transparent !important;
+        color: #1e3a8a !important;
+    }
+
+    .project-tags span {
+        border: 1px solid #1e3a8a !important;
+        background-color: transparent !important;
+        color: #1e3a8a !important;
+    }
+}
